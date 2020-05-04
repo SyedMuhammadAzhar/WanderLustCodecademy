@@ -47,7 +47,19 @@ const urlToFetch = `${url}${city}&limit=10&client_id=${clientId}&client_secret=$
 
 const getForecast = async () => {
 
+  const city=$input.val();
+  const urlToFetch=`${weatherUrl}?&q=${city}&APPID=${openWeatherKey}`
   try{
+
+    const response = await fetch(urlToFetch);
+    if(response.ok){
+
+      const jsonResponse=await response.json();
+
+      // console.log(jsonResponse);
+      return jsonResponse;
+    }
+
 
   }catch(error){
 
